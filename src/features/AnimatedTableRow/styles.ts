@@ -5,7 +5,8 @@ const styles = ScaledSheet.create({
     flexDirection: 'row',
     borderBottomWidth: 1,
     borderBottomColor: '#ccc',
-    padding: '10@vs',
+    paddingVertical: '10@vs',
+    paddingHorizontal: '6@vs',
   },
   cell: {
     flex: 1,
@@ -13,7 +14,7 @@ const styles = ScaledSheet.create({
     fontSize: '10@vs',
   },
   firstColumn: {
-    flex: 1.6,
+    flex: 1.8,
   },
   evenColumn: {
     color: '#557755',

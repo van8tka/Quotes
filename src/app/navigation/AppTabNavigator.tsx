@@ -3,6 +3,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import {AppTabScreens} from './screens.ts';
 import AboutScreen from '../../pages/About/AboutScreen.tsx';
 import QuotesScreen from '../../pages/Quotes/QuotesScreen.tsx';
+import { vs } from 'react-native-size-matters';
 
 const Tab = createBottomTabNavigator();
 
@@ -12,10 +13,10 @@ const AppTabNavigator = () => {
         screenOptions={{
           tabBarIcon: () => null,
           tabBarLabelStyle: {
-            fontSize: 16,
+            fontSize: vs(13),
           },
           tabBarItemStyle: {
-            marginTop: -16,
+            marginTop: -vs(12),
           },
         }}
       >
