@@ -1,4 +1,4 @@
-import { makeAutoObservable } from 'mobx';
+import {makeAutoObservable, runInAction} from 'mobx';
 import { QuotationDto } from './dto.ts';
 
 export class QuotesStore {
@@ -22,14 +22,21 @@ export class QuotesStore {
         if(this.quotes.length > 0) {
           this.previousQuotes = [...this.quotes];
         }
-        this.quotes = data.data;
+        runInAction( () => {
+          this.quotes = data.data;
+        });
+
       } else {
         throw new Error(data.msg || 'Unknown error');
       }
     } catch (error) {
-      this.error = error instanceof Error ? error.message : 'Unknown error';
+      runInAction( () => {
+        this.error = error instanceof Error ? error.message : 'Unknown error';
+      });
     } finally {
-      this.loading = false;
+      runInAction( () => {
+        this.loading = false;
+      });
     }
   };
 
