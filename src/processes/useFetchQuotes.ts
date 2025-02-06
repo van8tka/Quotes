@@ -1,11 +1,12 @@
-import { useEffect } from 'react';
 import {QuotesStore} from './QuotesStore.ts';
+import {useFocusEffect} from '@react-navigation/native';
+import {useCallback} from 'react';
 
 const useFetchQuotes = (quotesStore: QuotesStore) => {
 
   const intervalFetchData = 5000;
 
-  useEffect(() => {
+  useFocusEffect(useCallback(() => {
     const fetchData = async () => {
       await quotesStore.fetchQuotes();
     };
@@ -13,15 +14,13 @@ const useFetchQuotes = (quotesStore: QuotesStore) => {
     fetchData();
 
     const interval = setInterval(() => {
-      console.log('+++ repeat');
       fetchData();
     }, intervalFetchData);
 
     return () => {
-        console.log('+++ clear');
       clearInterval(interval);
     };
-  }, [quotesStore]);
+  }, [quotesStore]));
 };
 
 export default useFetchQuotes;
