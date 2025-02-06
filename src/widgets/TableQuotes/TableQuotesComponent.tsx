@@ -11,7 +11,7 @@ const TableQuotesComponent = observer(() => {
 
   return (
     <View style={{flex: 1}}>
-      <Text>{headerOfTable}</Text>
+      <Text style={{textAlign: 'center', padding: 10}}>{headerOfTable}</Text>
       {/*//лоадер только при первом запросе и загрузке страницы*/}
       {quotesStore.loading && <Text style={{position: 'absolute'}}>Loading...</Text>}
       {quotesStore.error && <Text>Error: {quotesStore.error}</Text>}

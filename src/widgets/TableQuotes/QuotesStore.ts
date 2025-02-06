@@ -1,8 +1,9 @@
 import { makeAutoObservable } from 'mobx';
-import {QuotationDto} from './dto.ts';
+import { QuotationDto } from './dto.ts';
 
 export class QuotesStore {
   quotes: QuotationDto[] = [];
+  previousQuotes: QuotationDto[] = [];
   loading: boolean = false;
   error: string | null = null;
 
@@ -18,6 +19,9 @@ export class QuotesStore {
       const response = await fetch('https://futures-api.poloniex.com/api/v2/tickers');
       const data = await response.json();
       if (data.code === '200000') {
+        if(this.quotes.length > 0) {
+          this.previousQuotes = [...this.quotes];
+        }
         this.quotes = data.data;
       } else {
         throw new Error(data.msg || 'Unknown error');
@@ -28,6 +32,10 @@ export class QuotesStore {
       this.loading = false;
     }
   };
+
+  get cachedQuotes() {
+    return this.previousQuotes;
+  }
 }
 
 const quotesStore = new QuotesStore();
