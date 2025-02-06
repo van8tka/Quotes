@@ -1,27 +1,24 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {Text, View} from 'react-native';
-import QuotesStore from './QuotesStore.ts';
 import useFetchQuotes from './useFetchQuotes.ts';
 import QuoteList from './QuotesList.tsx';
+import {observer} from 'mobx-react';
+import quotesStore from './QuotesStore.ts';
 
-const TableQuotesComponent = () => {
-
-  const quotesStore = new QuotesStore();
-
+const TableQuotesComponent = observer(() => {
+ const headerOfTable = 'Котировки с биржи poloniex';
   useFetchQuotes(quotesStore);
 
-  useEffect(() => {
-    console.log('++GG+++',quotesStore.quotes);
-  }, [quotesStore.quotes]);
-
   return (
-    <View style={{flex: 1}}><Text>{'table'}</Text>
-      {quotesStore.loading && <Text>Loading...</Text>}
+    <View style={{flex: 1}}>
+      <Text>{headerOfTable}</Text>
+      {/*//лоадер только при первом запросе и загрузке страницы*/}
+      {quotesStore.loading && <Text style={{position: 'absolute'}}>Loading...</Text>}
       {quotesStore.error && <Text>Error: {quotesStore.error}</Text>}
       <QuoteList quotes={quotesStore.quotes} />
     </View>
   );
-};
+});
 
 export default TableQuotesComponent;
 

@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import QuotesStore from './QuotesStore';
+import {QuotesStore} from './QuotesStore.ts';
 
 const useFetchTrades = (quotesStore: QuotesStore) => {
 

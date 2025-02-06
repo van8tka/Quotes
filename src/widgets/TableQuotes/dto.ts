@@ -1,9 +1,3 @@
-export interface QuotesDto {
-  code: string
-  msg: string
-  data: QuotationDto[]
-}
-
 export interface QuotationDto {
   sequence: number
   symbol: string

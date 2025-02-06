@@ -1,28 +1,33 @@
 import React from 'react';
-import { observer } from 'mobx-react';
 import {QuotationDto} from './dto.ts';
-import {Text, View} from 'react-native';
-
-
+import {ScrollView, Text, View} from 'react-native';
+import styles from './styles.ts';
 
 interface QuoteListProps {
   quotes: QuotationDto[];
 }
 
-const QuoteList: React.FC<QuoteListProps> = observer(({ quotes }) => {
-
-  console.log('+________23', quotes);
+const QuoteList: React.FC<QuoteListProps> = ({ quotes }) => {
   return (
-    <View>
-      {quotes.map(qoutation => (
-          <View key={qoutation.tradeId}>
-            <Text> {'Symbol:'}</Text> {qoutation.symbol} |
-            <Text> {'Price:'}</Text> {qoutation.price} |
-            <Text> {'Size:'}</Text> {qoutation.size}
-  </View>
-))}
-  </View>
-);
-});
+    <ScrollView>
+      <View style={styles.table}>
+        <View style={styles.header}>
+          <Text style={[styles.headerText, styles.firstColumn]}>Ticker Symbol</Text>
+          <Text style={styles.headerText}>Last</Text>
+          <Text style={styles.headerText}>Highest Bid</Text>
+          <Text style={styles.headerText}>Percent Change</Text>
+        </View>
+        {quotes.map(quotation => (
+          <View style={styles.row} key={quotation.tradeId}>
+            <Text style={[styles.cell, styles.firstColumn]}>{quotation.symbol}</Text>
+            <Text style={[styles.cell, styles.evenColumn]}>{quotation.price}</Text>
+            <Text style={styles.cell}>{quotation.bestBidPrice}</Text>
+            <Text style={[styles.cell, styles.evenColumn]}>{'выч'}</Text>
+          </View>
+        ))}
+      </View>
+    </ScrollView>
+  );
+};
 
 export default QuoteList;

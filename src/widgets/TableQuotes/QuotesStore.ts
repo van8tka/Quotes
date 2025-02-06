@@ -1,7 +1,7 @@
 import { makeAutoObservable } from 'mobx';
 import {QuotationDto} from './dto.ts';
 
-class QuotesStore {
+export class QuotesStore {
   quotes: QuotationDto[] = [];
   loading: boolean = false;
   error: string | null = null;
@@ -30,4 +30,5 @@ class QuotesStore {
   };
 }
 
-export default QuotesStore;
+const quotesStore = new QuotesStore();
+export default quotesStore;
