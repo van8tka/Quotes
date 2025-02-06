@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import {QuotesStore} from './QuotesStore.ts';
 
-const useFetchTrades = (quotesStore: QuotesStore) => {
+const useFetchQuotes = (quotesStore: QuotesStore) => {
 
   const intervalFetchData = 5000;
 
@@ -14,10 +14,10 @@ const useFetchTrades = (quotesStore: QuotesStore) => {
 
     const interval = setInterval(() => {
       fetchData();
-    }, intervalFetchData); // 5000 мс = 5 секунд
+    }, intervalFetchData);
 
     return () => clearInterval(interval);
-  }, [quotesStore]); // Зависимость от tradeStore
+  }, [quotesStore]);
 };
 
-export default useFetchTrades;
+export default useFetchQuotes;
