@@ -16,9 +16,9 @@ const TableQuotesComponent = observer(() => {
   return (
     <View style={styles.container}>
       <Text style={styles.tableName}>{tableName}</Text>
-      {quotesStore.loading && quotesStore.quotes.length === 0 && <Loader />}
-      {quotesStore.error && <Text>Error: {quotesStore.error}</Text>}
-      {quotesStore.quotes.length > 0 && <QuoteList quotes={quotesStore.quotes} />}
+      {quotesStore.loading &&
+        (quotesStore.quotes.length === 0 || quotesStore.error) && <Loader />}
+      {quotesStore.quotes.length > 0 && <QuoteList quotes={quotesStore.quotes} hasError={!!quotesStore.error} />}
     </View>
   );
 });
