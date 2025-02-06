@@ -1,12 +1,12 @@
 import {ScaledSheet} from 'react-native-size-matters';
 
 const styles = ScaledSheet.create({
-  container: {
-    flex: 1,
-  },
-  tableName:{
-    textAlign: 'center',
-    padding: 10,
+  table: {
+    borderWidth: 1,
+    borderColor: '#ccc',
+    borderRadius: 5,
+    overflow: 'hidden',
+    width: '100%',
   },
 });
 

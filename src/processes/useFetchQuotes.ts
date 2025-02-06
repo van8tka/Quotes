@@ -13,10 +13,14 @@ const useFetchQuotes = (quotesStore: QuotesStore) => {
     fetchData();
 
     const interval = setInterval(() => {
+      console.log('+++ repeat');
       fetchData();
     }, intervalFetchData);
 
-    return () => clearInterval(interval);
+    return () => {
+        console.log('+++ clear');
+      clearInterval(interval);
+    };
   }, [quotesStore]);
 };
 

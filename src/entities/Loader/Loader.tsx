@@ -1,18 +1,14 @@
 
 import React from 'react';
 import LottieView from 'lottie-react-native';
-import {StyleProp, View, ViewStyle} from 'react-native';
+import {View} from 'react-native';
 import LoaderAnimation from '../../shared/assets/loader.json';
 import styles from './styles.ts';
 
-export interface ILoaderProps {
-  containerStyle?: StyleProp<ViewStyle>;
-}
-
-const Loader = ({containerStyle}: ILoaderProps)=> {
+const Loader = ()=> {
 
     return (
-      <View style={[styles.container, containerStyle]}>
+      <View style={styles.container}>
         <LottieView
           source={LoaderAnimation}
           loop={true}
