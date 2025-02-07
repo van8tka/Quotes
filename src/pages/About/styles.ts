@@ -3,12 +3,12 @@ import {ScaledSheet} from 'react-native-size-matters';
 const styles = ScaledSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
     justifyContent: 'center',
   },
   text: {
-    fontSize: '16@s',
+    fontSize: '14@s',
     textAlign: 'center',
+    padding: '10@vs',
   },
 });
 
