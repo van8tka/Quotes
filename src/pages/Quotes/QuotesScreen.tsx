@@ -1,7 +1,7 @@
 import React from 'react';
 import {View} from 'react-native';
-import {mainStyles} from '../../app/styles/mainStyles.ts';
-import TableQuotesComponent from '../../widgets/TableQuotes/TableQuotesComponent.tsx';
+import {mainStyles} from '@app/styles/mainStyles.ts';
+import TableQuotesComponent from '@widgets/TableQuotes/TableQuotesComponent.tsx';
 
 const QuotesScreen = () => {
   return (

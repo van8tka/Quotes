@@ -1,6 +1,6 @@
 import {Animated, Text} from 'react-native';
 import React, {useEffect} from 'react';
-import {QuotationModel} from '../../processes/model.ts';
+import {QuotationModel} from '@processes/model.ts';
 import styles from './styles.ts';
 
 interface TableRowProps {

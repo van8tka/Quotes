@@ -1,6 +1,6 @@
 import React from 'react';
 import {Text, View} from 'react-native';
-import {mainStyles} from '../../app/styles/mainStyles.ts';
+import {mainStyles} from '@app/styles/mainStyles.ts';
 import styles from './styles.ts';
 
 const AboutScreen = () => {

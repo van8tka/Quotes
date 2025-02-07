@@ -1,9 +1,9 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import {AppTabScreens} from './screens.ts';
+import { vs } from 'react-native-size-matters';
 import AboutScreen from '../../pages/About/AboutScreen.tsx';
 import QuotesScreen from '../../pages/Quotes/QuotesScreen.tsx';
-import { vs } from 'react-native-size-matters';
 
 const Tab = createBottomTabNavigator();
 

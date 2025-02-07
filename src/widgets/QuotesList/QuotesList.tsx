@@ -1,12 +1,12 @@
 import React, {memo} from 'react';
-import {QuotationDto} from '../../processes/dto.ts';
+import {QuotationDto} from '@processes/dto.ts';
 import {ScrollView, View} from 'react-native';
 import styles from './styles.ts';
-import {getQuotationData} from '../../processes/model.ts';
-import quotesStore from '../../processes/QuotesStore.ts';
-import TableHeader from '../../features/TableHeader/TableHeader.tsx';
-import TableErrorRow from '../../features/TableErrorRow/TableErrorRow.tsx';
-import AnimatedTableRow from '../../features/AnimatedTableRow/AnimatedTableRow.tsx';
+import {getQuotationData} from '@processes/model.ts';
+import quotesStore from '@processes/QuotesStore.ts';
+import TableHeader from '@features/TableHeader/TableHeader.tsx';
+import TableErrorRow from '@features/TableErrorRow/TableErrorRow.tsx';
+import AnimatedTableRow from '@features/AnimatedTableRow/AnimatedTableRow.tsx';
 
 interface QuoteListProps {
   quotes: QuotationDto[];
